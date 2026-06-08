@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Mateusz Hohol — Mathematical Cognition &amp; Cognitive Science</title>
+<meta name="description" content="Mateusz Hohol — Associate Professor of Psychology at the Jagiellonian University. Experimental psychology of mathematical cognition." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,400;1,6..72,500&display=swap" rel="stylesheet" />
+<style>
+/* ============================================================
+   Mateusz Hohol — site styles · single-page version
+   ============================================================ */
+:root{
+  --ink:#141414;--ink-2:#2c2c2a;--mute:#6b6b68;--soft:#8a8a86;
+  --line:#e4e4e1;--line-2:#ededeb;--paper:#fbfbfa;--band:#f1f1ef;--white:#ffffff;
+  --serif:'Newsreader',Georgia,'Times New Roman',serif;
+  --sans:'Helvetica Neue',Helvetica,Arial,sans-serif;
+  --mono:ui-monospace,'SF Mono',Menlo,Consolas,monospace;
+  --maxw:1200px;--pad:64px;
+}
+*{box-sizing:border-box;}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;}
+a{color:inherit;text-decoration:none;}
+img{display:block;max-width:100%;}
+h1,h2,h3{margin:0;font-weight:500;letter-spacing:-0.02em;}
+p{margin:0;}
+.wrap{max-width:var(--maxw);margin:0 auto;padding-left:var(--pad);padding-right:var(--pad);}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:0.16em;text-transform:uppercase;color:var(--mute);}
+.rule{height:1px;background:var(--line);border:0;margin:0;}
+
+/* ---- pages ---- */
+.page{display:none;}
+.page.active{display:block;}
+
+/* ---- header ---- */
+.site-header{position:sticky;top:0;z-index:50;background:rgba(251,251,250,0.9);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line);}
+.site-header .bar{display:flex;justify-content:space-between;align-items:center;padding:22px 0;}
+.brand{font-family:var(--serif);font-size:21px;font-weight:500;letter-spacing:-0.01em;white-space:nowrap;cursor:pointer;}
+.nav{display:flex;gap:30px;align-items:center;}
+.nav a{font-size:14px;letter-spacing:0.01em;color:var(--mute);padding-bottom:3px;border-bottom:1px solid transparent;transition:color .2s,border-color .2s;cursor:pointer;}
+.nav a:hover{color:var(--ink);}
+.nav a.active{color:var(--ink);border-bottom-color:var(--ink);}
+.menu-btn{display:none;background:none;border:0;font-family:var(--mono);font-size:12px;letter-spacing:0.12em;text-transform:uppercase;color:var(--ink);cursor:pointer;padding:4px;}
+
+/* ---- hero ---- */
+.hero{display:grid;grid-template-columns:1fr 430px;gap:60px;padding:84px 0 72px;align-items:start;}
+.hero h1{font-family:var(--serif);font-size:clamp(52px,6vw,80px);line-height:1.0;letter-spacing:-0.025em;margin:26px 0 24px;}
+.hero .role{font-family:var(--serif);font-style:italic;font-size:23px;color:var(--mute);margin-bottom:30px;}
+.hero p.lead{font-family:var(--serif);font-size:20px;line-height:1.65;color:var(--ink-2);max-width:580px;margin:0;}
+.portrait{width:100%;aspect-ratio:3/4;object-fit:cover;background:var(--band);}
+.portrait-cap{font-family:var(--mono);font-size:11px;color:var(--soft);margin-top:12px;letter-spacing:0.04em;}
+
+/* ---- foci ---- */
+.foci-wrap{padding:0 0 64px;}
+.foci{display:grid;grid-template-columns:200px 1fr;gap:24px;border-top:1px solid var(--line);padding-top:36px;}
+.foci-intro{font-family:var(--serif);font-size:20px;line-height:1.6;color:var(--ink-2);margin-bottom:28px;}
+.foci-list{display:grid;grid-template-columns:1fr 1fr;gap:0;}
+.foci-item{font-family:var(--serif);font-size:19px;line-height:1.35;padding:12px 0;border-top:1px solid var(--line-2);display:flex;gap:12px;}
+.foci-item:nth-child(-n+2){border-top:0;}
+.foci-dash{color:var(--soft);flex-shrink:0;}
+
+/* ---- band: book + profiles ---- */
+.band{background:var(--band);border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
+.band-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;padding:64px 0;align-items:start;}
+.book{display:grid;grid-template-columns:186px 1fr;gap:30px;align-items:start;}
+.book-cover{width:186px;box-shadow:0 20px 48px -16px rgba(0,0,0,0.38);}
+.book-text .eyebrow{margin-bottom:16px;}
+.book-text h3{font-family:var(--serif);font-size:28px;line-height:1.1;margin:0 0 14px;}
+.book-text p{font-size:15px;line-height:1.6;color:var(--mute);margin:0 0 18px;}
+.book-text .meta{font-family:var(--mono);font-size:11px;letter-spacing:0.07em;color:var(--soft);text-transform:uppercase;margin-bottom:20px;}
+.btn-link{display:inline-flex;align-items:center;gap:6px;font-size:14px;color:var(--ink);border-bottom:1px solid var(--ink);padding-bottom:2px;transition:opacity .2s;}
+.btn-link:hover{opacity:.55;}
+
+.profiles-head{margin-bottom:22px;}
+.profiles{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+.profile{display:flex;align-items:center;gap:14px;padding:13px 15px;background:var(--white);border:1px solid var(--line);transition:border-color .2s,transform .18s;cursor:pointer;}
+.profile:hover{border-color:var(--ink);transform:translateY(-1px);}
+.profile .ic{width:17px;height:17px;display:block;opacity:.8;flex-shrink:0;}
+.profile .nm{font-size:14px;flex:1;}
+.profile .arr{font-size:13px;color:var(--soft);}
+
+/* ---- page head (inner pages) ---- */
+.page-head{padding:72px 0 48px;border-bottom:1px solid var(--line);}
+.page-head h1{font-family:var(--serif);font-size:clamp(40px,5vw,62px);line-height:1.02;letter-spacing:-0.025em;margin:18px 0 0;}
+.page-head .intro{font-family:var(--serif);font-size:20px;line-height:1.6;color:var(--mute);max-width:640px;margin:22px 0 0;}
+
+/* ---- publications page-head: left text + right book ---- */
+.pub-head{display:grid;grid-template-columns:1fr 160px;gap:48px;align-items:start;padding:72px 0 48px;border-bottom:1px solid var(--line);}
+.pub-head h1{font-family:var(--serif);font-size:clamp(40px,5vw,62px);line-height:1.02;letter-spacing:-0.025em;margin:0 0 22px;}
+.pub-head .intro{font-family:var(--serif);font-size:20px;line-height:1.6;color:var(--mute);margin:0;}
+.pub-book-link{display:block;}
+.pub-book-link .book-cover{width:100%;box-shadow:0 20px 48px -16px rgba(0,0,0,0.38);transition:opacity .2s;}
+.pub-book-link:hover .book-cover{opacity:.85;}
+@media(max-width:920px){.pub-head{grid-template-columns:1fr;gap:44px;}}
+
+/* ---- publications ---- */
+.pub-toolbar{display:flex;gap:8px;flex-wrap:wrap;padding:24px 0;border-bottom:1px solid var(--line);position:sticky;top:69px;background:rgba(251,251,250,0.94);backdrop-filter:blur(8px);z-index:20;}
+.year-chip{font-family:var(--mono);font-size:11.5px;letter-spacing:0.06em;color:var(--mute);background:none;border:1px solid var(--line);padding:7px 13px;border-radius:100px;cursor:pointer;transition:all .18s;}
+.year-chip:hover{border-color:var(--ink);color:var(--ink);}
+.year-chip.active{background:var(--ink);color:#fff;border-color:var(--ink);}
+.year-marker{font-family:var(--serif);font-size:46px;color:var(--line-2);line-height:1;padding:32px 0 6px;letter-spacing:-0.02em;font-weight:300;}
+.pub{display:grid;grid-template-columns:1fr auto;gap:32px;padding:24px 0;border-top:1px solid var(--line);align-items:start;}
+.pub-title{font-family:var(--serif);font-size:20px;line-height:1.45;color:var(--ink);margin-bottom:8px;}
+.pub-meta{font-size:14px;color:var(--mute);line-height:1.55;}
+.pub-meta .journal{font-style:italic;font-family:var(--serif);color:var(--ink-2);}
+.pub-actions{display:flex;gap:8px;flex-shrink:0;}
+.tag{font-family:var(--mono);font-size:11px;letter-spacing:0.08em;text-transform:uppercase;padding:6px 12px;border:1px solid var(--line);color:var(--mute);transition:all .18s;white-space:nowrap;cursor:pointer;}
+.tag:hover{border-color:var(--ink);color:var(--ink);}
+.tag.chapter{border-style:dashed;}
+
+/* ---- reference list (APA) ---- */
+.ref-list{max-width:880px;padding:8px 0 0;}
+.ref{font-family:var(--serif);font-size:18.5px;line-height:1.62;color:var(--ink-2);padding:22px 0;border-top:1px solid var(--line);padding-left:1.7em;text-indent:-1.7em;text-wrap:pretty;}
+.ref:first-child{border-top:0;}
+.ref em{font-style:italic;}
+.ref .doi{color:var(--ink);border-bottom:1px solid var(--line);word-break:break-word;transition:border-color .18s,opacity .18s;}
+.ref .doi:hover{border-bottom-color:var(--ink);opacity:.7;}
+.ref .pdf{display:inline-block;font-family:var(--mono);font-size:10.5px;letter-spacing:0.1em;text-transform:uppercase;color:var(--mute);border:1px solid var(--line);padding:3px 9px;margin-left:8px;vertical-align:1px;text-indent:0;transition:all .18s;}
+.ref .pdf:hover{border-color:var(--ink);color:var(--ink);}
+.pub-note{font-size:14px;color:var(--soft);font-family:var(--mono);letter-spacing:0.02em;padding:30px 0 0;}
+#page-projects .page-head .intro{padding-left:0;}
+.intro a{color:var(--ink);border-bottom:1px solid var(--mute);cursor:pointer;transition:opacity .18s;}
+.intro a:hover{opacity:.6;}
+.intro a:hover{opacity:.6;}
+
+/* ---- grants ---- */
+.grant{display:grid;grid-template-columns:1fr;gap:32px;padding:44px 0;border-top:1px solid var(--line);}
+.grant-num{font-family:var(--mono);font-size:13px;color:var(--soft);padding-top:6px;}
+.grant h3{font-family:var(--serif);font-size:26px;line-height:1.25;margin-bottom:16px;max-width:760px;}
+.grant p{font-size:16px;line-height:1.65;color:var(--ink-2);max-width:760px;margin:0 0 24px;}
+.grant-program{display:inline-block;font-family:var(--mono);font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--mute);border:1px solid var(--line);padding:5px 12px;margin-bottom:18px;}
+.grant-program.past{color:var(--soft);background:var(--band);border-color:var(--band);}
+.grant-facts{display:flex;gap:40px;flex-wrap:wrap;max-width:760px;}
+.fact-k{font-family:var(--mono);font-size:10.5px;letter-spacing:0.12em;text-transform:uppercase;color:var(--soft);margin-bottom:5px;}
+.fact-v{font-size:15px;color:var(--ink);}
+.grant-cta{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--paper);background:var(--ink);padding:11px 20px;margin-top:26px;transition:opacity .2s;}
+.grant-cta:hover{opacity:.78;}
+.grant-cta .ar{transition:transform .2s;}
+.grant-cta:hover .ar{transform:translateX(4px);}
+
+/* ---- cv download layout ---- */
+.cv-download-wrap{display:grid;grid-template-columns:1fr 320px;gap:80px;align-items:start;padding:56px 0;}
+.cv-photo{width:100%;object-fit:cover;aspect-ratio:3/4;}
+.cv-buttons-col{display:flex;flex-direction:column;gap:16px;padding-top:8px;}
+.cv-dl-btn{display:flex;align-items:center;gap:0;border:1px solid var(--line);padding:28px 32px;transition:border-color .2s,background .2s;text-decoration:none;color:var(--ink);}
+.cv-dl-btn:hover{border-color:var(--ink);background:var(--band);}
+.cv-dl-lang{font-family:var(--serif);font-size:28px;font-weight:500;letter-spacing:-0.02em;flex:1;}
+.cv-dl-label{font-family:var(--mono);font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--mute);margin-right:16px;}
+.cv-dl-arr{font-size:20px;color:var(--mute);}
+.cv-dl-btn:hover .cv-dl-arr{color:var(--ink);}
+@media(max-width:860px){.cv-download-wrap{grid-template-columns:1fr;gap:40px;}.cv-photo{max-width:320px;}}
+
+/* ---- cv ---- */
+.cv-section{display:grid;grid-template-columns:220px 1fr;gap:40px;padding:52px 0;border-top:1px solid var(--line);}
+.cv-label{font-family:var(--mono);font-size:12px;letter-spacing:0.13em;text-transform:uppercase;color:var(--mute);padding-top:4px;}
+.cv-body p{font-family:var(--serif);font-size:20px;line-height:1.6;margin-bottom:16px;}
+.contact-email{font-family:var(--serif);font-size:20px;color:var(--ink);border-bottom:1px solid var(--mute);transition:opacity .18s;}
+.contact-email:hover{opacity:.6;}
+.lab-promo{display:flex;justify-content:space-between;align-items:flex-end;gap:48px;margin-top:36px;padding:52px 56px;background:var(--ink);color:var(--paper);border-top:1px solid var(--line);transition:opacity .2s;}
+.lab-promo:hover{opacity:.93;}
+.lab-promo .eyebrow{color:rgba(251,251,250,0.55);margin-bottom:20px;}
+.lab-promo h2{font-family:var(--serif);font-size:clamp(30px,3.4vw,44px);line-height:1.08;letter-spacing:-0.025em;font-weight:500;margin:0 0 18px;}
+.lab-promo p{font-size:16px;line-height:1.6;color:rgba(251,251,250,0.72);max-width:520px;margin:0;}
+.lab-promo-cta{display:inline-flex;align-items:center;gap:10px;font-family:var(--mono);font-size:13px;letter-spacing:0.08em;text-transform:uppercase;white-space:nowrap;flex-shrink:0;padding-bottom:6px;}
+.lab-promo-right{display:flex;flex-direction:column;align-items:flex-end;gap:24px;flex-shrink:0;}
+.lab-promo-logo{width:146px;height:auto;display:block;}
+.lab-promo-cta .ar{transition:transform .2s;}
+.lab-promo:hover .lab-promo-cta .ar{transform:translateX(5px);}
+@media(max-width:760px){.lab-promo{flex-direction:column;align-items:flex-start;gap:28px;padding:40px 32px;}.lab-promo-right{align-items:flex-start;}}
+.placeholder-note{font-family:var(--mono);font-size:13px;color:var(--soft);background:var(--band);border:1px dashed var(--line);padding:18px 22px;line-height:1.6;margin-top:4px;}
+
+/* ---- contact ---- */
+.contact-row{display:flex;justify-content:space-between;align-items:baseline;padding:20px 0;border-top:1px solid var(--line);gap:24px;}
+.contact-row:first-child{border-top:0;}
+.ck{font-family:var(--mono);font-size:12px;letter-spacing:0.1em;text-transform:uppercase;color:var(--mute);}
+.cv-val{font-family:var(--serif);font-size:20px;}
+
+/* ---- footer ---- */
+.site-footer{background:var(--ink);color:#fff;}
+.footer-grid{display:flex;justify-content:space-between;align-items:center;gap:48px;padding:36px 0;flex-wrap:wrap;}
+.footer-name{font-family:var(--serif);font-size:22px;}
+.footer-aff{font-size:13.5px;color:rgba(255,255,255,0.55);max-width:360px;line-height:1.5;}
+.footer-links{display:flex;gap:10px;flex-wrap:wrap;}
+.footer-links a{display:flex;align-items:center;justify-content:center;width:36px;height:36px;border:1px solid rgba(255,255,255,0.2);border-radius:50%;transition:background .2s,border-color .2s;}
+.footer-links a:hover{background:rgba(255,255,255,0.1);border-color:rgba(255,255,255,0.5);}
+.footer-links .ic{width:15px;height:15px;display:block;}
+.footer-bottom{border-top:1px solid rgba(255,255,255,0.1);padding:18px 0;display:flex;justify-content:space-between;font-family:var(--mono);font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:rgba(255,255,255,0.45);flex-wrap:wrap;gap:8px;}
+
+/* ---- spacing utils ---- */
+.spacer{height:48px;}
+
+/* ============================================================
+   Responsive
+   ============================================================ */
+@media(max-width:960px){
+  :root{--pad:36px;}
+  .hero{grid-template-columns:1fr;gap:36px;padding:52px 0;}
+  .hero .portrait-wrap{max-width:380px;}
+  .band-grid{grid-template-columns:1fr;gap:52px;}
+  .foci{grid-template-columns:1fr;gap:12px;}
+  .pub{grid-template-columns:1fr;gap:12px;}
+  .pub-actions{flex-wrap:wrap;}
+  .cv-section{grid-template-columns:1fr;gap:12px;}
+  .grant{grid-template-columns:1fr;gap:12px;}
+  .grant-num{display:none;}
+}
+@media(max-width:680px){
+  :root{--pad:22px;}
+  .nav{display:none;position:absolute;top:100%;left:0;right:0;background:var(--paper);flex-direction:column;align-items:flex-start;gap:0;border-bottom:1px solid var(--line);padding:6px 0;}
+  .nav.open{display:flex;}
+  .nav a{padding:14px var(--pad);width:100%;border-bottom:1px solid var(--line-2);}
+  .menu-btn{display:block;}
+  .site-header .bar{position:relative;}
+  .foci-list{grid-template-columns:1fr;}
+  .foci-item:nth-child(-n+2){border-top:1px solid var(--line-2);}
+  .foci-item:first-child{border-top:0;}
+  .book{grid-template-columns:1fr;}
+  .profiles{grid-template-columns:1fr;}
+  .footer-grid{flex-direction:column;align-items:flex-start;}
+  .pub-toolbar{top:67px;}
+  .year-marker{font-size:36px;}
+}
+@media(prefers-reduced-motion:reduce){}
+</style>
+</head>
+<body>
+
+<!-- ============ HEADER ============ -->
+<header class="site-header">
+  <div class="wrap bar">
+    <span class="brand" onclick="navigate('about')">Mateusz&nbsp;Hohol</span>
+    <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-label="Toggle menu">Menu</button>
+    <nav class="nav" id="mainNav">
+      <a onclick="navigate('about')" data-page="about" class="active">About</a>
+      <a onclick="navigate('publications')" data-page="publications">Publications</a>
+      <a onclick="navigate('projects')" data-page="projects">Projects</a>
+      <a onclick="navigate('cv')" data-page="cv">CV</a>
+      <a onclick="navigate('contact')" data-page="contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ============ PAGE: ABOUT ============ -->
+<main class="page active" id="page-about" data-label="About">
+
+  <section class="wrap hero">
+    <div>
+      <div class="eyebrow">Experimental Psychology · Cognitive Science · Mathematical Cognition</div>
+      <h1>Mateusz<br />Hohol</h1>
+      <div class="role">Associate Professor of Psychology · Jagiellonian University</div>
+      <p class="lead">I am the founder and co-leader of the Mathematical Cognition and Learning Lab and an Associate Professor of Psychology at the Jagiellonian University in Kraków (JU). I hold a habilitation in psychology and a Ph.D. in philosophy. I currently serve as Director of the Copernicus Center for Interdisciplinary Studies, JU. In addition, I teach in the Cognitive Science Programme and at the Doctoral School in the Social Sciences, JU.</p>
+    </div>
+    <div class="portrait-wrap">
+      <img class="portrait" src="assets/mateusz-hohol-photo.jpg" alt="Portrait of Mateusz Hohol" />
+      <div class="portrait-cap">Photo: P. Kopeć, Kraków 2025</div>
+    </div>
+  </section>
+
+  <section class="wrap foci-wrap">
+    <div class="foci">
+      <div class="eyebrow">Research interests</div>
+      <div>
+        <p class="foci-intro" style="margin-bottom:0;">My research focuses on the experimental psychology of mathematical cognition, particularly the psychological mechanisms underlying the processing of numbers and space. I also work on cognitive artifacts, methodological and conceptual issues in cognitive science, and social cognition.</p>
+      </div>
+    </div>
+    <div class="foci">
+      <div class="eyebrow">Current foci</div>
+      <div>
+        <div class="foci-list">
+          <div class="foci-item"><span class="foci-dash">—</span>Numerical cognition in professional mathematicians</div>
+          <div class="foci-item"><span class="foci-dash">—</span>Long-term memory and mathematical skills</div>
+          <div class="foci-item"><span class="foci-dash">—</span>Cognitive profile of developmental dyscalculia</div>
+          <div class="foci-item"><span class="foci-dash">—</span>Math anxiety</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="wrap band-grid">
+      <!-- book -->
+      <div class="book">
+        <img class="book-cover" src="assets/foundations-of-geometric-cognition-cover.jpeg" alt="Foundations of Geometric Cognition — book cover" />
+        <div class="book-text">
+          <div class="eyebrow">Book</div>
+          <h3>Foundations of<br />Geometric Cognition</h3>
+          <p>A monograph on the cognitive underpinnings of geometric reasoning — from spatial intuition and expertise to the cultural artifacts that scaffold mathematical thought.</p>
+          <div class="meta">New York–London · Routledge 2020</div>
+          <a class="btn-link" href="https://www.routledge.com/Foundations-of-Geometric-Cognition/Hohol/p/book/9780367173456" target="_blank" rel="noopener">View the book ↗</a>
+        </div>
+      </div>
+      <!-- profiles -->
+      <div>
+        <div class="eyebrow profiles-head">Profiles &amp; networks</div>
+        <div class="profiles">
+          <a class="profile" href="https://www.researchgate.net/profile/Mateusz-Hohol" target="_blank" rel="noopener">
+            <img class="ic" src="https://cdn.simpleicons.org/researchgate/141414" alt="" />
+            <span class="nm">ResearchGate</span><span class="arr">↗</span>
+          </a>
+          <a class="profile" href="https://orcid.org/0000-0003-0422-5488" target="_blank" rel="noopener">
+            <svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 0C5.372 0 0 5.372 0 12s5.372 12 12 12 12-5.372 12-12S18.628 0 12 0zM7.369 4.378c.525 0 .947.431.947.947s-.422.947-.947.947a.95.95 0 0 1-.947-.947c0-.525.422-.947.947-.947zm-.722 3.038h1.444v10.041H6.647V7.416zm3.562 0h3.9c3.712 0 5.344 2.653 5.344 5.025 0 2.578-2.016 5.016-5.325 5.016h-3.919V7.416zm1.444 1.303v7.435h2.297c2.359 0 3.9-1.303 3.9-3.712 0-1.819-1.247-3.723-3.884-3.723h-2.313z"/></svg>
+            <span class="nm">ORCID</span><span class="arr">↗</span>
+          </a>
+          <a class="profile" href="https://scholar.google.com/citations?user=VbDVb-YAAAAJ&hl=pl&oi=ao" target="_blank" rel="noopener">
+            <svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M5.242 13.769L0 9.5 12 0l12 9.5-5.242 4.269C17.548 11.249 14.978 9.5 12 9.5c-2.977 0-5.548 1.748-6.758 4.269zM12 10a7 7 0 1 0 0 14 7 7 0 0 0 0-14z"/></svg>
+            <span class="nm">Google Scholar</span><span class="arr">↗</span>
+          </a>
+          <a class="profile" href="https://osf.io/7y3s6/" target="_blank" rel="noopener">
+            <img class="ic" src="https://cdn.simpleicons.org/osf/141414" alt="" />
+            <span class="nm">Open Science Framework</span><span class="arr">↗</span>
+          </a>
+          <a class="profile" href="https://bsky.app/profile/mateuszhohol.bsky.social" target="_blank" rel="noopener">
+            <svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 10.8c-1.087-2.114-4.046-6.053-6.798-7.995C2.566.944 1.561 1.266.902 1.565.139 1.908 0 3.08 0 3.768c0 .69.378 5.65.624 6.479.815 2.736 3.713 3.66 6.383 3.364.136-.02.275-.039.415-.056-.138.022-.276.04-.415.056-3.912.58-7.387 2.005-2.83 7.078 5.013 5.19 6.87-1.113 7.823-4.308.953 3.195 2.05 9.271 7.733 4.308 4.267-4.308 1.172-6.498-2.74-7.078a8.741 8.741 0 0 1-.415-.056c.14.017.279.036.415.056 2.67.297 5.568-.628 6.383-3.364.246-.828.624-5.79.624-6.478 0-.69-.139-1.861-.902-2.206-.659-.298-1.664-.62-4.3 1.24C16.046 4.748 13.087 8.687 12 10.8z"/></svg>
+            <span class="nm">Bluesky</span><span class="arr">↗</span>
+          </a>
+          <a class="profile" href="https://www.linkedin.com/in/mateusz-hohol/" target="_blank" rel="noopener">
+            <svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            <span class="nm">LinkedIn</span><span class="arr">↗</span>
+          </a>
+          <a class="profile" href="https://github.com/mateuszhohol/" target="_blank" rel="noopener">
+            <svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+            <span class="nm">GitHub</span><span class="arr">↗</span>
+          </a>
+          <a class="profile" href="https://www.youtube.com/@fpvflyingcircus" target="_blank" rel="noopener">
+            <svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+            <span class="nm">YouTube — FPV flights</span><span class="arr">↗</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============ PAGE: PUBLICATIONS ============ -->
+<main class="page" id="page-publications" data-label="Publications">
+  <section class="wrap pub-head">
+    <div>
+      <h1>Publications</h1>
+      <p class="intro">The list below presents a selection of my scientific publications with links and PDFs. A comprehensive list of my publications, including Polish-language scientific books and articles as well as popular science writings, is available in <a href="#cv" onclick="navigate('cv');return false;">my CV</a>.</p>
+    </div>
+    <a href="https://www.routledge.com/Foundations-of-Geometric-Cognition/Hohol/p/book/9780367173456" target="_blank" rel="noopener" class="pub-book-link">
+      <img class="book-cover" src="assets/foundations-of-geometric-cognition-cover.jpeg" alt="Foundations of Geometric Cognition — Routledge 2020" />
+    </a>
+  </section>
+  <div class="wrap">
+    <div class="ref-list">
+      <p class="ref">Wołoszyn, K., Hohol, M., &amp; Winkielman, P. (2026). Restricting facial mimicry does not impair emotion recognition or influence the evaluation of human affect vocalizations and instrumental sounds. <em>Scientific Reports</em>, <em>16</em>, Article 14558. <a class="doi" href="https://doi.org/10.1038/s41598-026-43390-2" target="_blank" rel="noopener">https://doi.org/10.1038/s41598-026-43390-2</a> <a class="pdf" href="publications/Woloszyn-etal_2026_SciReports.pdf" target="_blank" rel="noopener">PDF</a></p>
+      <p class="ref">Szymanek, P., Senderecka, M., &amp; Hohol, M. (2026). I see moving people: Expectations drive detection of biological motion in noisy point-light displays. <em>Psychonomic Bulletin &amp; Review</em>, <em>33</em>(1), 51. <a class="doi" href="https://doi.org/10.3758/s13423-025-02839-7" target="_blank" rel="noopener">https://doi.org/10.3758/s13423-025-02839-7</a> <a class="pdf" href="publications/Szymanek-etal_2026_PBR.pdf" target="_blank" rel="noopener">PDF</a></p>
+      <p class="ref">Obidziński, M., Bażela, N., &amp; Hohol, M. (2025). More gist, better math: Fuzzy-trace theory-based investigation of the relationship between long-term memory and mathematical skills. <em>Cognition</em>, <em>263</em>, 106212. <a class="doi" href="https://doi.org/10.1016/j.cognition.2025.106212" target="_blank" rel="noopener">https://doi.org/10.1016/j.cognition.2025.106212</a> <a class="pdf" href="publications/Obidzinski-etal_2025_Cognition.pdf" target="_blank" rel="noopener">PDF</a></p>
+      <p class="ref">Baran, B., Obidziński, M., &amp; Hohol, M. (2025). Interpreting insect behavior through the lens of executive functions. <em>Frontiers in Behavioral Neuroscience</em>, <em>19</em>, Article 1638374. <a class="doi" href="https://doi.org/10.3389/fnbeh.2025.1638374" target="_blank" rel="noopener">https://doi.org/10.3389/fnbeh.2025.1638374</a> <a class="pdf" href="publications/Baran-etal_2025_FrontBehNeurosci.pdf" target="_blank" rel="noopener">PDF</a></p>
+      <p class="ref">Szymanek, P., Grodniewicz, J. P., &amp; Hohol, M. (2025). Cognitive artifacts in the evolution of cultural systems of beliefs and practices. <em>Method and Theory in the Study of Religion</em>, <em>37</em>, 424–355. <a class="doi" href="https://doi.org/10.1163/15700682-bja10145" target="_blank" rel="noopener">https://doi.org/10.1163/15700682-bja10145</a> <a class="pdf" href="publications/Szymanek-etal_2025_MTSR.pdf" target="_blank" rel="noopener">PDF</a></p>
+      <p class="ref">Wołoszyn, K., Hohol, M., Kuniecki, M., &amp; Winkielman, P. (2024). Facing emotional vocalizations and instrumental sounds: Sighted and blind individuals spontaneously and selectively activate facial muscles in response to emotional stimuli. <em>Emotion</em>, <em>25</em>(4), 827–840. <a class="doi" href="https://doi.org/10.1037/emo0001475" target="_blank" rel="noopener">https://doi.org/10.1037/emo0001475</a> <a class="pdf" href="publications/Woloszyn-etal_2024_Emotion.pdf" target="_blank" rel="noopener">PDF</a></p>
+      <p class="ref">Szymanek, P., Homan, M., van Elk, M., &amp; Hohol, M. (2024). Effects of expectations and sensory unreliability on voice detection: A preregistered study. <em>Consciousness and Cognition</em>, <em>123</em>, 103718. <a class="doi" href="https://doi.org/10.1016/j.concog.2024.103718" target="_blank" rel="noopener">https://doi.org/10.1016/j.concog.2024.103718</a> <a class="pdf" href="publications/Szymanek-etal_2024_ConsciousCogn.pdf" target="_blank" rel="noopener">PDF</a></p>
+      <p class="ref">Hohol, M., Szymanek, P., &amp; Cipora, K. (2024). Analogue magnitude representation of angles and its relation to geometric expertise. <em>Scientific Reports</em>, <em>14</em>, Article 8997. <a class="doi" href="https://doi.org/10.1038/s41598-024-59521-6" target="_blank" rel="noopener">https://doi.org/10.1038/s41598-024-59521-6</a> <a class="pdf" href="publications/Hohol-etal_2024_SciReports.pdf" target="_blank" rel="noopener">PDF</a></p>
+      <p class="ref">Grodniewicz, J. P., &amp; Hohol, M. (2024). Therapeutic chatbots as cognitive-affective artifacts. <em>Topoi</em>, <em>43</em>, 795–807. <a class="doi" href="https://doi.org/10.1007/s11245-024-10018-x" target="_blank" rel="noopener">https://doi.org/10.1007/s11245-024-10018-x</a> <a class="pdf" href="publications/Grodniewicz-Hohol_2024_Topoi.pdf" target="_blank" rel="noopener">PDF</a></p>
+      <p class="ref">Grodniewicz, J. P., &amp; Hohol, M. (2023). Waiting for a digital therapist: Three challenges on the path to psychotherapy delivered by artificial intelligence. <em>Frontiers in Psychiatry</em>, <em>14</em>, Article 1190084. <a class="doi" href="https://doi.org/10.3389/fpsyt.2023.1190084" target="_blank" rel="noopener">https://doi.org/10.3389/fpsyt.2023.1190084</a> <a class="pdf" href="publications/Grodniewicz-Hohol_2023_FrontPsychiatry.pdf" target="_blank" rel="noopener">PDF</a></p>
+      <p class="ref">Grodniewicz, J. P., &amp; Hohol, M. (2023). Therapeutic conversational artificial intelligence and the acquisition of self-understanding. <em>The American Journal of Bioethics</em>, <em>23</em>(5), 59–61. <a class="doi" href="https://doi.org/10.1080/15265161.2023.2191021" target="_blank" rel="noopener">https://doi.org/10.1080/15265161.2023.2191021</a> <a class="pdf" href="publications/Grodniewicz-Hohol_2023_AJOB.pdf" target="_blank" rel="noopener">PDF</a></p>
+      <p class="ref">Baran, B., Krzyżowski, M., Radai, Z., Francikowski, J., &amp; Hohol, M. (2023). Geometry-based navigation in the dark: Layout symmetry facilitates spatial learning in the house cricket, <em>Acheta domesticus</em>, in the absence of visual cues. <em>Animal Cognition</em>, <em>23</em>, 755–770. <a class="doi" href="https://doi.org/10.1101/2019.12.28.886655" target="_blank" rel="noopener">https://doi.org/10.1101/2019.12.28.886655</a> <a class="pdf" href="publications/Baran-etal_2023_AnimCogn.pdf" target="_blank" rel="noopener">PDF</a></p>
+      <p class="ref">Wołoszyn, K., Hohol, M., Kuniecki, M., &amp; Winkielman, P. (2022). Restricting movements of lower face leaves recognition of emotional vocalizations intact but introduces a valence positivity bias. <em>Scientific Reports</em>, <em>12</em>, Article 16101. <a class="doi" href="https://doi.org/10.1038/s41598-022-18888-0" target="_blank" rel="noopener">https://doi.org/10.1038/s41598-022-18888-0</a> <a class="pdf" href="publications/Woloszyn-etal_2022_SciReports.pdf" target="_blank" rel="noopener">PDF</a></p>
+      <p class="ref">Hohol, M., Wołoszyn, K., &amp; Cipora, K. (2022). No fingers, no SNARC? Neither the finger counting starting hand, nor its stability robustly affect the SNARC effect. <em>Acta Psychologica</em>, <em>230</em>, 103765. <a class="doi" href="https://doi.org/10.1016/j.actpsy.2022.103765" target="_blank" rel="noopener">https://doi.org/10.1016/j.actpsy.2022.103765</a> <a class="pdf" href="publications/Hohol-etal_2022_ActaPsych.pdf" target="_blank" rel="noopener">PDF</a></p>
+      <p class="ref">Hohol, M., Wołoszyn, K., &amp; Brożek, B. (2021). Making cognitive niches explicit: On the importance of external cognitive representations in accounting for cumulative culture. <em>Frontiers in Integrative Neuroscience</em>, <em>15</em>, Article 734930. <a class="doi" href="https://doi.org/10.3389/fnint.2021.734930" target="_blank" rel="noopener">https://doi.org/10.3389/fnint.2021.734930</a> <a class="pdf" href="publications/Hohol-etal_2021_FrontIntegrNeurosci.pdf" target="_blank" rel="noopener">PDF</a></p>
+      <p class="ref">Miłkowski, M., &amp; Hohol, M. (2021). Explanations in cognitive science: Unification versus pluralism. <em>Synthese</em>, <em>199</em>(Suppl. 1), S1–S17. <a class="doi" href="https://doi.org/10.1007/s11229-020-02777-y" target="_blank" rel="noopener">https://doi.org/10.1007/s11229-020-02777-y</a> <a class="pdf" href="publications/Milkowski-Hohol_2021_Synthese.pdf" target="_blank" rel="noopener">PDF</a></p>
+      <p class="ref">Hohol, M. (2021). Cognitive science: An interdisciplinary approach to mind and cognition. In B. Brożek, M. Jakubiec, &amp; P. Urbańczyk (Eds.), <em>Perspectives on interdisciplinarity</em> (pp. 33–55). Copernicus Center Press. <a class="pdf" href="publications/Hohol_2021_PerspectivesInterdisc.pdf" target="_blank" rel="noopener">PDF</a></p>
+      <p class="ref">Hohol, M., Willmes, K., Nęcka, E., Brożek, B., Nuerk, H.-C., &amp; Cipora, K. (2020). Professional mathematicians do not differ from others in the symbolic numerical distance and size effects. <em>Scientific Reports</em>, <em>10</em>, Article 11531. <a class="doi" href="https://doi.org/10.1038/s41598-020-68202-z" target="_blank" rel="noopener">https://doi.org/10.1038/s41598-020-68202-z</a> <a class="pdf" href="publications/Hohol-etal_2020_SciReports.pdf" target="_blank" rel="noopener">PDF</a></p>
+      <p class="ref">Miłkowski, M., Hohol, M., &amp; Nowakowski, P. (2019). Mechanisms in psychology: The road towards unity? <em>Theory &amp; Psychology</em>, <em>29</em>(5), 567–578. <a class="doi" href="https://doi.org/10.1177/0959354319875218" target="_blank" rel="noopener">https://doi.org/10.1177/0959354319875218</a> <a class="pdf" href="publications/Milkowski-etal_2019_TheoryPsych.pdf" target="_blank" rel="noopener">PDF</a></p>
+      <p class="ref">Hohol, M., &amp; Miłkowski, M. (2019). Cognitive artifacts for geometric reasoning. <em>Foundations of Science</em>, <em>24</em>(4), 657–680. <a class="doi" href="https://doi.org/10.1007/s10699-019-09603-w" target="_blank" rel="noopener">https://doi.org/10.1007/s10699-019-09603-w</a> <a class="pdf" href="publications/Hohol-Milkowski_2019_FoundSci.pdf" target="_blank" rel="noopener">PDF</a></p>
+      <p class="ref">Miłkowski, M., Hensel, W. M., &amp; Hohol, M. (2018). Replicability or reproducibility? On the replication crisis in computational neuroscience and sharing only relevant detail. <em>Journal of Computational Neuroscience</em>, <em>45</em>(3), 163–172. <a class="doi" href="https://doi.org/10.1007/s10827-018-0702-z" target="_blank" rel="noopener">https://doi.org/10.1007/s10827-018-0702-z</a> <a class="pdf" href="publications/Milkowski-etal_2018_JCompNeurosci.pdf" target="_blank" rel="noopener">PDF</a></p>
+      <p class="ref">Hohol, M., Wołoszyn, K., Nuerk, H.-C., &amp; Cipora, K. (2018). A large-scale survey on finger counting routines, their temporal stability and flexibility in educated adults. <em>PeerJ</em>, <em>6</em>, Article e5878. <a class="doi" href="https://doi.org/10.7717/peerj.5878" target="_blank" rel="noopener">https://doi.org/10.7717/peerj.5878</a> <a class="pdf" href="publications/Hohol-etal_2018_PeerJ.pdf" target="_blank" rel="noopener">PDF</a></p>
+      <p class="ref">Miłkowski, M., Clowes, R. W., Rucińska, Z., Przegalińska, A., Zawidzki, T., Gies, A., Krueger, J., McGann, M., Afeltowicz, Ł., Wachowski, W. M., Stjernberg, F., Loughlin, V., &amp; Hohol, M. (2018). From wide cognition to mechanisms: A silent revolution. <em>Frontiers in Psychology</em>, <em>9</em>, Article 2393. <a class="doi" href="https://doi.org/10.3389/fpsyg.2018.02393" target="_blank" rel="noopener">https://doi.org/10.3389/fpsyg.2018.02393</a> <a class="pdf" href="publications/Milkowski-etal_2018_FrontPsychol.pdf" target="_blank" rel="noopener">PDF</a></p>
+      <p class="ref">Hohol, M., Baran, B., Krzyżowski, M., &amp; Francikowski, J. (2017). Does spatial navigation have a blind-spot? Visiocentrism is not enough to explain the navigational behavior comprehensively. <em>Frontiers in Behavioral Neuroscience</em>, <em>11</em>, Article 154. <a class="doi" href="https://doi.org/10.3389/fnbeh.2017.00154" target="_blank" rel="noopener">https://doi.org/10.3389/fnbeh.2017.00154</a> <a class="pdf" href="publications/Hohol-etal_2017_FrontBehNeurosci.pdf" target="_blank" rel="noopener">PDF</a></p>
+      <p class="ref">Wołoszyn, K., &amp; Hohol, M. (2017). Commentary: The poverty of embodied cognition. <em>Frontiers in Psychology</em>, <em>8</em>, Article 845. <a class="doi" href="https://doi.org/10.3389/fpsyg.2017.00845" target="_blank" rel="noopener">https://doi.org/10.3389/fpsyg.2017.00845</a> <a class="pdf" href="publications/Woloszyn-Hohol_2017_FrontPsychol.pdf" target="_blank" rel="noopener">PDF</a></p>
+      <p class="ref">Hohol, M., Cipora, K., Willmes, K., &amp; Nuerk, H.-C. (2017). Bringing back the balance: Domain-general processes are also important in numerical cognition. <em>Frontiers in Psychology</em>, <em>8</em>, Article 499. <a class="doi" href="https://doi.org/10.3389/fpsyg.2017.00499" target="_blank" rel="noopener">https://doi.org/10.3389/fpsyg.2017.00499</a> <a class="pdf" href="publications/Hohol-etal_2017_FrontPsychol.pdf" target="_blank" rel="noopener">PDF</a></p>
+      <p class="ref">Cipora, K., Hohol, M., Nuerk, H.-C., Willmes, K., Brożek, B., Kucharzyk, B., &amp; Nęcka, E. (2016). Professional mathematicians differ from controls in their spatial-numerical associations. <em>Psychological Research</em>, <em>80</em>, 710–726. <a class="doi" href="https://doi.org/10.1007/s00426-015-0677-6" target="_blank" rel="noopener">https://doi.org/10.1007/s00426-015-0677-6</a> <a class="pdf" href="publications/Cipora-etal_2016_PsychRes.pdf" target="_blank" rel="noopener">PDF</a></p>
+    </div>
+    <div class="spacer"></div>
+  </div>
+</main>
+
+<!-- ============ PAGE: PROJECTS ============ -->
+<main class="page" id="page-projects" data-label="Projects">
+  <section class="wrap page-head">
+    <div class="eyebrow">Funded research · Principal investigator</div>
+    <h1>Projects</h1>
+    <p class="intro">The list below includes projects that I have led as Principal Investigator or Project Leader. A complete overview of projects in which I have served as Co-Investigator is available in <a href="#cv" onclick="navigate('cv');return false;">my CV</a>.</p>
+  </section>
+  <div class="wrap">
+    <article class="grant">
+      <div>
+        <span class="grant-program">Ongoing</span>
+        <h3>The gist of math: Applying Fuzzy-Trace Theory as an integrative framework to investigate different dimensions of numerical memory and their associations with mathematical skills in the general population and among individuals with dyscalculia</h3>
+        <p>This project investigates how different memory systems contribute to mathematical skills, with a particular focus on the distinction between verbatim memory (exact information) and gist memory (meaning-based representations) proposed by Fuzzy-Trace Theory. Through a series of behavioral studies involving both typically developing adults and individuals with developmental dyscalculia, the project aims to identify previously overlooked memory-related deficits and compensatory mechanisms underlying individual differences in mathematical performance. By integrating Fuzzy-Trace Theory with advanced analytical approaches, including multinomial processing tree modeling and data mining techniques, the project seeks to provide a more comprehensive account of the cognitive foundations of mathematical abilities. The findings are expected to advance theoretical understanding of mathematical cognition and inform the development of future interventions to support individuals with dyscalculia.</p>
+        <div class="grant-facts">
+          <div><div class="fact-k">Funder</div><div class="fact-v">National Science Centre</div></div>
+          <div><div class="fact-k">Programme</div><div class="fact-v">OPUS</div></div>
+          <div><div class="fact-k">Project ID</div><div class="fact-v">2024/55/B/HS6/02944</div></div>
+          <div><div class="fact-k">Amount</div><div class="fact-v">PLN 1,681,784 · ≈ €400,000</div></div>
+          <div><div class="fact-k">Duration</div><div class="fact-v">2025–2029</div></div>
+        </div>
+        <a class="grant-cta" href="https://mcll.uj.edu.pl/projects/the-gist-of-math/" target="_blank" rel="noopener">Learn more <span class="ar">→</span></a>
+      </div>
+    </article>
+    <article class="grant">
+      <div>
+        <span class="grant-program">Ongoing</span>
+        <h3>ErasMAs+ Enriching HEI training to help future primary school teachers tackle math anxiety in themselves and their pupils</h3>
+        <p>This project addresses the growing challenge of declining mathematics proficiency in Europe by helping Higher Education Institutions integrate evidence-based approaches to preventing and reducing math anxiety, which affects around 30% of students and 10% of teachers. An international consortium of Jagiellonian University in Kraków (leader), University of Padova, Thomas More University in Antwerp, and KU Leuven will develop multilingual, freely accessible resources, including assessment tools, cognitive-behavioural interventions, psychoeducational materials, and a MOOC to support teacher education programs. By embedding these resources into teacher training curricula, the project aims to equip future educators with the knowledge and skills to recognize and address math anxiety early, thereby fostering more positive mathematics learning environments and ultimately improving mathematical competence across Europe.</p>
+        <div class="grant-facts">
+          <div><div class="fact-k">Funder</div><div class="fact-v">European Commission</div></div>
+          <div><div class="fact-k">Programme</div><div class="fact-v">Erasmus+ KA220-HED</div></div>
+          <div><div class="fact-k">Project ID</div><div class="fact-v">2025-1-PL01-KA220-HED-000360673</div></div>
+          <div><div class="fact-k">Amount</div><div class="fact-v">€400,000</div></div>
+          <div><div class="fact-k">Duration</div><div class="fact-v">2025–2028</div></div>
+        </div>
+        <a class="grant-cta" href="https://mcll.uj.edu.pl/projects/erasmas/" target="_blank" rel="noopener">Learn more <span class="ar">→</span></a>
+      </div>
+    </article>
+    <article class="grant">
+      <div>
+        <span class="grant-program">Ongoing</span>
+        <h3>Mind, number, space: Spatial-numerical cognition in professional mathematicians</h3>
+        <p>This project explores the relationship between elementary numerical cognition and advanced mathematical expertise. By comparing professional mathematicians with carefully matched control participants, it investigates whether basic numerical processes, such as magnitude processing and spatial-numerical associations, form the cognitive foundations of higher-level mathematical abilities. Using an extensive battery of behavioral tasks, complemented by neuroscientific measures, the project aims to identify the cognitive and neural characteristics that distinguish mathematical experts. The findings will advance our understanding of how prolonged mathematical training shapes the mind and brain, while contributing to broader theories of mathematical cognition and expertise.</p>
+        <div class="grant-facts">
+          <div><div class="fact-k">Funder</div><div class="fact-v">Ministry of Science and Higher Education</div></div>
+          <div><div class="fact-k">Programme</div><div class="fact-v">Science for Society</div></div>
+          <div><div class="fact-k">Project ID</div><div class="fact-v">NdS-II/SN/0332/2024/01</div></div>
+          <div><div class="fact-k">Amount</div><div class="fact-v">PLN 1,000,000 · ≈ €236,000</div></div>
+          <div><div class="fact-k">Duration</div><div class="fact-v">2024–2027</div></div>
+        </div>
+        <a class="grant-cta" href="https://mcll.uj.edu.pl/projects/mind-number-space/" target="_blank" rel="noopener">Learn more <span class="ar">→</span></a>
+      </div>
+    </article>
+    <article class="grant">
+      <div>
+        <span class="grant-program">Ongoing</span>
+        <h3>Cognitive artifacts on various time scales: An integrative approach</h3>
+        <p>This project develops an integrative account of how cognitive artifacts, such as diagrams, symbolic notations, maps, and external memory aids, shape human cognition across multiple time scales, from moment-to-moment interactions to developmental, historical, and evolutionary change. Drawing on contemporary approaches in philosophy and cognitive science, it seeks to explain how humans and artifacts form integrated cognitive systems that transform the way we think and reason. Particular attention is devoted to mathematics-related artifacts, providing new insights into how symbolic and diagrammatic tools support complex cognitive processes and contribute to the development of human mental capacities.</p>
+        <div class="grant-facts">
+          <div><div class="fact-k">Funder</div><div class="fact-v">National Science Centre</div></div>
+          <div><div class="fact-k">Programme</div><div class="fact-v">OPUS</div></div>
+          <div><div class="fact-k">Project ID</div><div class="fact-v">2021/43/B/HS1/02868</div></div>
+          <div><div class="fact-k">Amount</div><div class="fact-v">PLN 460,434 · ≈ €110,000</div></div>
+          <div><div class="fact-k">Duration</div><div class="fact-v">2022–2026</div></div>
+        </div>
+        <a class="grant-cta" href="https://mcll.uj.edu.pl/projects/cognitive-artifacts/" target="_blank" rel="noopener">Learn more <span class="ar">→</span></a>
+      </div>
+    </article>
+    <article class="grant">
+      <div>
+        <span class="grant-program">Ongoing</span>
+        <h3>Mathematical Cognition and Learning Lab: Funding grant</h3>
+        <p>This founding project is establishing the Mathematical Cognition and Learning Lab as an interdisciplinary research facility dedicated to understanding the cognitive, neural, and social mechanisms underlying mathematical learning and performance. By integrating approaches from psychology, neuroscience, and education, the project aims to build a leading European hub for basic and applied research on mathematical cognition. Beyond advancing scientific knowledge, the project seeks to translate research into practice through the development of evidence-based educational tools, expert support for educational stakeholders, and broad science communication initiatives. Through these activities, the Lab aims to contribute to improving mathematics education and supporting learners across diverse educational contexts.</p>
+        <div class="grant-facts">
+          <div><div class="fact-k">Funder</div><div class="fact-v">Jagiellonian University</div></div>
+          <div><div class="fact-k">Programme</div><div class="fact-v">Flagship Project within Excellence Initiative – Research University</div></div>
+          <div><div class="fact-k">Amount</div><div class="fact-v">PLN 1,000,000 · ≈ €235,000</div></div>
+          <div><div class="fact-k">Duration</div><div class="fact-v">2022–2026</div></div>
+        </div>
+        <a class="grant-cta" href="https://mcll.uj.edu.pl/projects/mcll-funding-grant/" target="_blank" rel="noopener">Learn more <span class="ar">→</span></a>
+      </div>
+    </article>
+    <article class="grant">
+      <div>
+        <span class="grant-program past">Past</span>
+        <h3>Mechanisms of geometric cognition</h3>
+        <p>This project investigated the cognitive mechanisms underlying geometric thinking, with particular emphasis on the role of language in the transition from basic spatial abilities to the use of advanced Euclidean geometry. Drawing on perspectives from cognitive science, psychology, philosophy of mathematics, and methodology of science, it examined how spatial orientation, abstraction, precision, and conceptual stability contribute to the development of geometric knowledge.</p>
+        <p>The project's main findings were synthesized in Hohol's book <em>Foundations of Geometric Cognition</em> (Routledge, 2020).</p>
+        <div class="grant-facts">
+          <div><div class="fact-k">Funder</div><div class="fact-v">National Science Centre</div></div>
+          <div><div class="fact-k">Programme</div><div class="fact-v">OPUS</div></div>
+          <div><div class="fact-k">Project ID</div><div class="fact-v">2015/19/B/HS1/03310</div></div>
+          <div><div class="fact-k">Amount</div><div class="fact-v">PLN 183,600 · ≈ €43,500</div></div>
+          <div><div class="fact-k">Duration</div><div class="fact-v">2016–2020</div></div>
+        </div>
+      </div>
+    </article>
+    <div class="spacer"></div>
+  </div>
+</main>
+
+<!-- ============ PAGE: CV ============ -->
+<main class="page" id="page-cv" data-label="CV">
+  <section class="wrap page-head">
+    <div class="eyebrow">Curriculum vitae</div>
+    <h1>CV</h1>
+    <p class="intro">Find my CV in English and Polish, providing an overview of my academic career, research, publications, grants, teaching, international collaborations, and public engagement activities.</p>
+  </section>
+  <div class="wrap">
+    <div class="cv-download-wrap">
+      <div class="cv-buttons-col">
+        <a class="cv-dl-btn" href="https://www.dropbox.com/scl/fi/uvhfp1ug5le6me93qdpo8/CV_Hohol_E.docx?rlkey=hase01h1cby4pldvktvrdlwuo&dl=0" target="_blank" rel="noopener">
+          <span class="cv-dl-lang">English</span>
+          <span class="cv-dl-label">Download CV</span>
+          <span class="cv-dl-arr">↓</span>
+        </a>
+        <a class="cv-dl-btn" href="https://www.dropbox.com/scl/fi/7g014dah8nskhlvf3xa78/CV_Hohol_PL.docx?rlkey=ujqi3h1gbpnie0dwe54qfrehp&dl=0" target="_blank" rel="noopener">
+          <span class="cv-dl-lang">Polish</span>
+          <span class="cv-dl-label">Pobierz CV</span>
+          <span class="cv-dl-arr">↓</span>
+        </a>
+      </div>
+      <div class="cv-photo-col">
+        <img class="cv-photo" src="assets/mateusz-hohol-photo2.jpg" alt="Mateusz Hohol speaking at a conference" />
+        <div class="portrait-cap">Photo: A. Walanus, Kraków 2026</div>
+      </div>
+    </div>
+    <div class="spacer"></div>
+  </div>
+</main>
+
+<!-- ============ PAGE: CONTACT ============ -->
+<main class="page" id="page-contact" data-label="Contact">
+  <section class="wrap page-head">
+    <div class="eyebrow">Get in touch</div>
+    <h1>Contact</h1>
+    <p class="intro">For research collaborations, media enquiries, student supervision, or speaking invitations, please get in touch using the details below.</p>
+  </section>
+  <div class="wrap">
+    <section class="cv-section">
+      <div class="cv-label">Address</div>
+      <div class="cv-body">
+        <p>Mathematical Cognition and Learning Lab<br />
+        Copernicus Center for Interdisciplinary Studies<br />
+        Jagiellonian University in Kraków<br />
+        Main Square 34 (Spiski Palace, fl. 3, rm. 1)<br />
+        31-010 Kraków, Poland</p>
+      </div>
+    </section>
+    <section class="cv-section">
+      <div class="cv-label">Email</div>
+      <div class="cv-body">
+        <p><a class="contact-email" href="mailto:mateusz.hohol@uj.edu.pl">mateusz.hohol@uj.edu.pl</a></p>
+      </div>
+    </section>
+    <a class="lab-promo" href="https://mcll.uj.edu.pl/" target="_blank" rel="noopener">
+      <div class="lab-promo-text">
+        <div class="eyebrow">Visit the lab's website</div>
+        <h2>Mathematical Cognition<br />and Learning Lab</h2>
+        <p>Explore our team, ongoing studies, publications, and seminars at the lab I founded and co-lead at the Jagiellonian University.</p>
+      </div>
+      <div class="lab-promo-right">
+        <img class="lab-promo-logo" src="assets/MCLL_mark_white.png" alt="Mathematical Cognition and Learning Lab logo" />
+        <span class="lab-promo-cta">mcll.uj.edu.pl <span class="ar">→</span></span>
+      </div>
+    </a>
+    <div class="spacer"></div>
+  </div>
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="site-footer">
+  <div class="wrap footer-grid">
+    <div class="footer-name">Mateusz Hohol</div>
+    <div class="footer-links">
+      <a href="https://www.researchgate.net/profile/Mateusz-Hohol" target="_blank" rel="noopener" aria-label="ResearchGate"><img class="ic" src="https://cdn.simpleicons.org/researchgate/ffffff" alt="" /></a>
+      <a href="https://orcid.org/0000-0003-0422-5488" target="_blank" rel="noopener" aria-label="ORCID"><svg class="ic" viewBox="0 0 24 24"><path fill="currentColor" d="M12 0C5.372 0 0 5.372 0 12s5.372 12 12 12 12-5.372 12-12S18.628 0 12 0zM7.369 4.378c.525 0 .947.431.947.947s-.422.947-.947.947a.95.95 0 0 1-.947-.947c0-.525.422-.947.947-.947zm-.722 3.038h1.444v10.041H6.647V7.416zm3.562 0h3.9c3.712 0 5.344 2.653 5.344 5.025 0 2.578-2.016 5.016-5.325 5.016h-3.919V7.416zm1.444 1.303v7.435h2.297c2.359 0 3.9-1.303 3.9-3.712 0-1.819-1.247-3.723-3.884-3.723h-2.313z"/></svg></a>
+      <a href="https://scholar.google.com/citations?user=VbDVb-YAAAAJ&hl=pl&oi=ao" target="_blank" rel="noopener" aria-label="Google Scholar"><svg class="ic" viewBox="0 0 24 24"><path fill="currentColor" d="M5.242 13.769L0 9.5 12 0l12 9.5-5.242 4.269C17.548 11.249 14.978 9.5 12 9.5c-2.977 0-5.548 1.748-6.758 4.269zM12 10a7 7 0 1 0 0 14 7 7 0 0 0 0-14z"/></svg></a>
+      <a href="https://osf.io/7y3s6/" target="_blank" rel="noopener" aria-label="OSF"><img class="ic" src="https://cdn.simpleicons.org/osf/ffffff" alt="" /></a>
+      <a href="https://bsky.app/profile/mateuszhohol.bsky.social" target="_blank" rel="noopener" aria-label="Bluesky"><svg class="ic" viewBox="0 0 24 24"><path fill="currentColor" d="M12 10.8c-1.087-2.114-4.046-6.053-6.798-7.995C2.566.944 1.561 1.266.902 1.565.139 1.908 0 3.08 0 3.768c0 .69.378 5.65.624 6.479.815 2.736 3.713 3.66 6.383 3.364.136-.02.275-.039.415-.056-.138.022-.276.04-.415.056-3.912.58-7.387 2.005-2.83 7.078 5.013 5.19 6.87-1.113 7.823-4.308.953 3.195 2.05 9.271 7.733 4.308 4.267-4.308 1.172-6.498-2.74-7.078a8.741 8.741 0 0 1-.415-.056c.14.017.279.036.415.056 2.67.297 5.568-.628 6.383-3.364.246-.828.624-5.79.624-6.478 0-.69-.139-1.861-.902-2.206-.659-.298-1.664-.62-4.3 1.24C16.046 4.748 13.087 8.687 12 10.8z"/></svg></a>
+      <a href="https://www.linkedin.com/in/mateusz-hohol/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg class="ic" viewBox="0 0 24 24"><path fill="currentColor" d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+      <a href="https://github.com/mateuszhohol/" target="_blank" rel="noopener" aria-label="GitHub"><svg class="ic" viewBox="0 0 24 24"><path fill="currentColor" d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></a>
+      <a href="https://www.youtube.com/@fpvflyingcircus" target="_blank" rel="noopener" aria-label="YouTube"><svg class="ic" viewBox="0 0 24 24"><path fill="currentColor" d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a>
+    </div>
+  </div>
+  <div class="wrap footer-bottom">
+    <span>© 2026</span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  // ---- SPA navigation ----
+  function navigate(page){
+    document.querySelectorAll('.page').forEach(function(p){ p.classList.remove('active'); });
+    document.querySelectorAll('.nav a').forEach(function(a){ a.classList.remove('active'); });
+    var el = document.getElementById('page-' + page);
+    if(el){ el.classList.add('active'); window.scrollTo(0,0); }
+    var link = document.querySelector('.nav a[data-page="' + page + '"]');
+    if(link){ link.classList.add('active'); }
+    location.hash = page === 'about' ? '' : page;
+    document.title = (page === 'about' ? 'Mateusz Hohol' :
+      (el ? el.getAttribute('data-label') + ' — Mateusz Hohol' : 'Mateusz Hohol'));
+  }
+  window.navigate = navigate;
+
+  // Hash routing on load
+  var hash = location.hash.replace('#','') || 'about';
+  if(hash === 'grants') hash = 'projects';
+  navigate(hash);
+
+  // Mobile menu
+  var btn = document.getElementById('menuBtn');
+  var nav = document.getElementById('mainNav');
+  if(btn && nav){
+    btn.addEventListener('click', function(){
+      var open = nav.classList.toggle('open');
+      btn.textContent = open ? 'Close' : 'Menu';
+      btn.setAttribute('aria-expanded', open);
+    });
+    nav.querySelectorAll('a').forEach(function(a){
+      a.addEventListener('click', function(){ nav.classList.remove('open'); btn.textContent='Menu'; btn.setAttribute('aria-expanded','false'); });
+    });
+  }
+
+  // Publications year filter
+  document.querySelectorAll('.year-chip').forEach(function(chip){
+    chip.addEventListener('click', function(){
+      var y = chip.getAttribute('data-year');
+      document.querySelectorAll('.year-chip').forEach(function(c){ c.classList.toggle('active', c===chip); });
+      document.querySelectorAll('.year-group').forEach(function(g){
+        g.style.display = (y==='all' || g.getAttribute('data-year')===y) ? '' : 'none';
+      });
+    });
+  });
+})();
+</script>
+</body>
+</html>
