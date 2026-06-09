@@ -206,6 +206,10 @@ p{margin:0;}
   .cv-section{grid-template-columns:1fr;gap:12px;}
   .grant{grid-template-columns:1fr;gap:12px;}
   .grant-num{display:none;}
+  /* Restore the horizontal gutter that section `padding:X 0` shorthands
+     strip from these .wrap elements. On desktop (>960px) the gutter comes
+     from .wrap centering within its 1200px max-width, so this is mobile-only. */
+  .site-header .bar,.hero,.foci-wrap,.band-grid,.pub-head,.page-head,.footer-grid,.footer-bottom{padding-left:var(--pad);padding-right:var(--pad);}
 }
 @media(max-width:680px){
   :root{--pad:22px;}
