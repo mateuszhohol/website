@@ -137,16 +137,16 @@ p{margin:0;}
 .grant-cta:hover .ar{transform:translateX(4px);}
 
 /* ---- cv download layout ---- */
-.cv-download-wrap{display:grid;grid-template-columns:1fr 320px;gap:80px;align-items:start;padding:56px 0;}
-.cv-photo{width:100%;object-fit:cover;aspect-ratio:3/4;}
-.cv-buttons-col{display:flex;flex-direction:column;gap:16px;padding-top:8px;}
-.cv-dl-btn{display:flex;align-items:center;gap:0;border:1px solid var(--line);padding:28px 32px;transition:border-color .2s,background .2s;text-decoration:none;color:var(--ink);}
+.cv-download-wrap{display:grid;grid-template-columns:1fr 380px;gap:60px;align-items:start;padding:56px 0;}
+.cv-photo{width:100%;object-fit:cover;aspect-ratio:4/3;}
+.cv-buttons-col{display:flex;flex-direction:column;gap:12px;padding-top:8px;}
+.cv-dl-btn{display:flex;align-items:center;gap:0;border:1px solid var(--line);padding:18px 28px;transition:border-color .2s,background .2s;text-decoration:none;color:var(--ink);}
 .cv-dl-btn:hover{border-color:var(--ink);background:var(--band);}
 .cv-dl-lang{font-family:var(--serif);font-size:28px;font-weight:500;letter-spacing:-0.02em;flex:1;}
 .cv-dl-label{font-family:var(--mono);font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--mute);margin-right:16px;}
 .cv-dl-arr{font-size:20px;color:var(--mute);}
 .cv-dl-btn:hover .cv-dl-arr{color:var(--ink);}
-@media(max-width:860px){.cv-download-wrap{grid-template-columns:1fr;gap:40px;}.cv-photo{max-width:320px;}}
+@media(max-width:860px){.cv-download-wrap{grid-template-columns:1fr;gap:40px;}.cv-photo{max-width:380px;}}
 
 /* ---- cv ---- */
 .cv-section{display:grid;grid-template-columns:220px 1fr;gap:40px;padding:52px 0;border-top:1px solid var(--line);}
@@ -490,8 +490,7 @@ p{margin:0;}
         </a>
       </div>
       <div class="cv-photo-col">
-        <img class="cv-photo" src="assets/mateusz-hohol-photo2.jpg" alt="Mateusz Hohol speaking at a conference" />
-        <div class="portrait-cap">Photo: A. Walanus, Kraków 2026</div>
+        <img class="cv-photo" src="assets/mateusz-hohol-photo2.jpg" alt="Mateusz Hohol" />
       </div>
     </div>
     <div class="spacer"></div>
