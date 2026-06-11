@@ -113,13 +113,17 @@ p{margin:0;}
 .page-head .intro{font-family:var(--serif);font-size:20px;line-height:1.6;color:var(--mute);max-width:640px;margin:22px 0 0;}
 
 /* ---- publications page-head: left text + right book ---- */
-.pub-head{display:grid;grid-template-columns:1fr 160px;gap:48px;align-items:start;padding:72px 0 48px;border-bottom:1px solid var(--line);}
+.pub-head{display:grid;grid-template-columns:1fr auto;gap:48px;align-items:start;padding:72px 0 48px;border-bottom:1px solid var(--line);}
 .pub-head h1{font-family:var(--serif);font-size:clamp(40px,5vw,62px);line-height:1.02;letter-spacing:-0.025em;margin:0 0 22px;}
 .pub-head .intro{font-family:var(--serif);font-size:20px;line-height:1.6;color:var(--mute);margin:0;max-width:640px;}
 .pub-book-link{display:block;}
 .pub-book-link .book-cover{width:100%;box-shadow:0 20px 48px -16px rgba(0,0,0,0.38);transition:opacity .2s;}
 .pub-book-link:hover .book-cover{opacity:.85;}
-@media(max-width:920px){.pub-head{grid-template-columns:1fr;gap:44px;}}
+/* ---- pub-head covers: a row of books next to the intro, equal heights ---- */
+.pub-head-covers{display:flex;gap:16px;align-items:flex-start;}
+.pub-head-covers .pub-book-link{width:auto;}
+.pub-head-covers .book-cover{height:180px;width:auto;}
+@media(max-width:920px){.pub-head{grid-template-columns:1fr;gap:44px;}.pub-head-covers{flex-wrap:wrap;}}
 
 /* ---- publications · reference list (APA) ---- */
 .ref-list{max-width:880px;padding:8px 0 0;}
@@ -348,9 +352,17 @@ p{margin:0;}
       <h1>Publikacje</h1>
       <p class="intro">Poniższa lista przedstawia wybór moich publikacji naukowych wraz z linkami i plikami PDF. Pełna lista publikacji — obejmująca także teksty popularnonaukowe — znajduje się w <a href="#cv" onclick="navigate('cv');return false;">moim CV</a>.</p>
     </div>
-    <a href="https://www.routledge.com/Foundations-of-Geometric-Cognition/Hohol/p/book/9780367173456" target="_blank" rel="noopener" class="pub-book-link">
-      <img class="book-cover" src="assets/foundations-of-geometric-cognition-cover.jpeg" alt="Foundations of Geometric Cognition — Routledge 2020" />
-    </a>
+    <div class="pub-head-covers">
+      <a href="https://www.routledge.com/Foundations-of-Geometric-Cognition/Hohol/p/book/9780367173456" target="_blank" rel="noopener" class="pub-book-link">
+        <img class="book-cover" src="assets/foundations-of-geometric-cognition-cover.jpeg" alt="Foundations of Geometric Cognition — okładka książki" />
+      </a>
+      <a href="https://ccpress.pl/umysl-matematyczny/3-21-43" target="_blank" rel="noopener" class="pub-book-link">
+        <img class="book-cover" src="assets/umysl-matematyczny-cover.jpg" alt="Umysł matematyczny — okładka książki" />
+      </a>
+      <a href="https://ccpress.pl/wyjasnic-umysl/3-21-35" target="_blank" rel="noopener" class="pub-book-link">
+        <img class="book-cover" src="assets/wyjasnic-umysl-cover.jpg" alt="Wyjaśnić umysł — okładka książki" />
+      </a>
+    </div>
   </section>
   <div class="wrap">
     <div class="ref-list">
@@ -363,7 +375,7 @@ p{margin:0;}
       <p class="ref">Szymanek, P., Homan, M., van Elk, M., &amp; Hohol, M. (2024). Effects of expectations and sensory unreliability on voice detection: A preregistered study. <em>Consciousness and Cognition</em>, <em>123</em>, 103718. <a class="doi" href="https://doi.org/10.1016/j.concog.2024.103718" target="_blank" rel="noopener">https://doi.org/10.1016/j.concog.2024.103718</a> <a class="pdf" href="publications/Szymanek-etal_2024_ConsciousCogn.pdf" target="_blank" rel="noopener">PDF</a></p>
       <p class="ref">Hohol, M., Szymanek, P., &amp; Cipora, K. (2024). Analogue magnitude representation of angles and its relation to geometric expertise. <em>Scientific Reports</em>, <em>14</em>, Article 8997. <a class="doi" href="https://doi.org/10.1038/s41598-024-59521-6" target="_blank" rel="noopener">https://doi.org/10.1038/s41598-024-59521-6</a> <a class="pdf" href="publications/Hohol-etal_2024_SciReports.pdf" target="_blank" rel="noopener">PDF</a></p>
       <p class="ref">Grodniewicz, J. P., &amp; Hohol, M. (2024). Therapeutic chatbots as cognitive-affective artifacts. <em>Topoi</em>, <em>43</em>, 795–807. <a class="doi" href="https://doi.org/10.1007/s11245-024-10018-x" target="_blank" rel="noopener">https://doi.org/10.1007/s11245-024-10018-x</a> <a class="pdf" href="publications/Grodniewicz-Hohol_2024_Topoi.pdf" target="_blank" rel="noopener">PDF</a></p>
-      <p class="ref">Hohol, M., &amp; Bażela, N. (2024). Mathematical cognition. W: J. Bremer (Red.), <em>Cognitive science</em> (ss. 223–241). Ignatianum University Press. <a class="doi" href="https://doi.org/10.35765/slowniki.436en" target="_blank" rel="noopener">https://doi.org/10.35765/slowniki.436en</a> <a class="pdf" href="publications/Hohol-Bazela_2024_MathCogn.pdf" target="_blank" rel="noopener">PDF</a></p>
+      <p class="ref">Hohol, M., Bażela, N. (2024). Poznanie matematyczne. W J. Bremer (red.), <em>Kognitywistyka</em> (ss. 229–248). Wydawnictwo Naukowe Uniwersytetu Ignatianum w Krakowie. <a class="doi" href="https://doi.org/10.35765/slowniki.436" target="_blank" rel="noopener">https://doi.org/10.35765/slowniki.436</a> <a class="pdf" href="publications/Hohol-Bazela_2024_PoznMat.pdf" target="_blank" rel="noopener">PDF</a></p>
       <p class="ref">Grodniewicz, J. P., &amp; Hohol, M. (2023). Waiting for a digital therapist: Three challenges on the path to psychotherapy delivered by artificial intelligence. <em>Frontiers in Psychiatry</em>, <em>14</em>, Article 1190084. <a class="doi" href="https://doi.org/10.3389/fpsyt.2023.1190084" target="_blank" rel="noopener">https://doi.org/10.3389/fpsyt.2023.1190084</a> <a class="pdf" href="publications/Grodniewicz-Hohol_2023_FrontPsychiatry.pdf" target="_blank" rel="noopener">PDF</a></p>
       <p class="ref">Grodniewicz, J. P., &amp; Hohol, M. (2023). Therapeutic conversational artificial intelligence and the acquisition of self-understanding. <em>The American Journal of Bioethics</em>, <em>23</em>(5), 59–61. <a class="doi" href="https://doi.org/10.1080/15265161.2023.2191021" target="_blank" rel="noopener">https://doi.org/10.1080/15265161.2023.2191021</a> <a class="pdf" href="publications/Grodniewicz-Hohol_2023_AJOB.pdf" target="_blank" rel="noopener">PDF</a></p>
       <p class="ref">Baran, B., Krzyżowski, M., Radai, Z., Francikowski, J., &amp; Hohol, M. (2023). Geometry-based navigation in the dark: Layout symmetry facilitates spatial learning in the house cricket, <em>Acheta domesticus</em>, in the absence of visual cues. <em>Animal Cognition</em>, <em>23</em>, 755–770. <a class="doi" href="https://doi.org/10.1101/2019.12.28.886655" target="_blank" rel="noopener">https://doi.org/10.1101/2019.12.28.886655</a> <a class="pdf" href="publications/Baran-etal_2023_AnimCogn.pdf" target="_blank" rel="noopener">PDF</a></p>
@@ -384,6 +396,10 @@ p{margin:0;}
       <p class="ref">Hohol, M., Cipora, K., Willmes, K., &amp; Nuerk, H.-C. (2017). Bringing back the balance: Domain-general processes are also important in numerical cognition. <em>Frontiers in Psychology</em>, <em>8</em>, Article 499. <a class="doi" href="https://doi.org/10.3389/fpsyg.2017.00499" target="_blank" rel="noopener">https://doi.org/10.3389/fpsyg.2017.00499</a> <a class="pdf" href="publications/Hohol-etal_2017_FrontPsychol.pdf" target="_blank" rel="noopener">PDF</a></p>
       <p class="ref">Cipora, K., Hohol, M., Nuerk, H.-C., Willmes, K., Brożek, B., Kucharzyk, B., &amp; Nęcka, E. (2016). Professional mathematicians differ from controls in their spatial-numerical associations. <em>Psychological Research</em>, <em>80</em>, 710–726. <a class="doi" href="https://doi.org/10.1007/s00426-015-0677-6" target="_blank" rel="noopener">https://doi.org/10.1007/s00426-015-0677-6</a> <a class="pdf" href="publications/Cipora-etal_2016_PsychRes.pdf" target="_blank" rel="noopener">PDF</a></p>
       <p class="ref">Hohol, M., &amp; Furman, M. (2016). On explanation in neuroscience: The mechanistic framework. W: M. Heller, B. Brożek, &amp; M. Hohol (Red.), <em>The concept of explanation</em> (ss. 207–235). Copernicus Center Press. <a class="pdf" href="publications/Hohol-Furman_2016_ConceptExpl.pdf" target="_blank" rel="noopener">PDF</a></p>
+      <p class="ref">Heller, M., Brożek, B., Hohol, M. (red.) (2016). <em>The concept of explanation</em>. Kraków: Copernicus Center Press. <a class="pdf" href="https://ccpress.pl/the-concept-of-explanation/3-19-187" target="_blank" rel="noopener">Link</a></p>
+      <p class="ref">Brożek, B., Hohol, M. (2014). <em>Umysł matematyczny</em>. Kraków: Copernicus Center Press (wydanie drugie: 2016, wydanie trzecie poprawione: 2017). <a class="pdf" href="https://ccpress.pl/umysl-matematyczny/3-21-43" target="_blank" rel="noopener">Link</a></p>
+      <p class="ref">Hohol, M. (2013). <em>Wyjaśnić umysł: Struktura teorii neurokognitywnych</em>. Kraków: Copernicus Center Press (drugie wydanie poprawione: 2017). <a class="pdf" href="https://ccpress.pl/wyjasnic-umysl/3-21-35" target="_blank" rel="noopener">Link</a></p>
+      <p class="ref">Stelmach, J., Brożek, B., Hohol, M. (red.) (2013). <em>The many faces of normativity</em>. Kraków: Copernicus Center Press. <a class="pdf" href="https://ccpress.pl/the-many-faces-of-normativity/3-19-24" target="_blank" rel="noopener">Link</a></p>
     </div>
     <div class="spacer"></div>
   </div>

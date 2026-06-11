@@ -113,13 +113,17 @@ p{margin:0;}
 .page-head .intro{font-family:var(--serif);font-size:20px;line-height:1.6;color:var(--mute);max-width:640px;margin:22px 0 0;}
 
 /* ---- publications page-head: left text + right book ---- */
-.pub-head{display:grid;grid-template-columns:1fr 160px;gap:48px;align-items:start;padding:72px 0 48px;border-bottom:1px solid var(--line);}
+.pub-head{display:grid;grid-template-columns:1fr auto;gap:48px;align-items:start;padding:72px 0 48px;border-bottom:1px solid var(--line);}
 .pub-head h1{font-family:var(--serif);font-size:clamp(40px,5vw,62px);line-height:1.02;letter-spacing:-0.025em;margin:0 0 22px;}
 .pub-head .intro{font-family:var(--serif);font-size:20px;line-height:1.6;color:var(--mute);margin:0;max-width:640px;}
 .pub-book-link{display:block;}
 .pub-book-link .book-cover{width:100%;box-shadow:0 20px 48px -16px rgba(0,0,0,0.38);transition:opacity .2s;}
 .pub-book-link:hover .book-cover{opacity:.85;}
-@media(max-width:920px){.pub-head{grid-template-columns:1fr;gap:44px;}}
+/* ---- pub-head covers: a row of books next to the intro, equal heights ---- */
+.pub-head-covers{display:flex;gap:16px;align-items:flex-start;}
+.pub-head-covers .pub-book-link{width:auto;}
+.pub-head-covers .book-cover{height:180px;width:auto;}
+@media(max-width:920px){.pub-head{grid-template-columns:1fr;gap:44px;}.pub-head-covers{flex-wrap:wrap;}}
 
 /* ---- publications · reference list (APA) ---- */
 .ref-list{max-width:880px;padding:8px 0 0;}
@@ -348,9 +352,17 @@ p{margin:0;}
       <h1>Publications</h1>
       <p class="intro">The list below presents a selection of my scientific publications with links and PDFs. A comprehensive list of my publications, including Polish-language scientific books and articles as well as popular science writings, is available in <a href="#cv" onclick="navigate('cv');return false;">my CV</a>.</p>
     </div>
-    <a href="https://www.routledge.com/Foundations-of-Geometric-Cognition/Hohol/p/book/9780367173456" target="_blank" rel="noopener" class="pub-book-link">
-      <img class="book-cover" src="../assets/foundations-of-geometric-cognition-cover.jpeg" alt="Foundations of Geometric Cognition — Routledge 2020" />
-    </a>
+    <div class="pub-head-covers">
+      <a href="https://www.routledge.com/Foundations-of-Geometric-Cognition/Hohol/p/book/9780367173456" target="_blank" rel="noopener" class="pub-book-link">
+        <img class="book-cover" src="../assets/foundations-of-geometric-cognition-cover.jpeg" alt="Foundations of Geometric Cognition — book cover" />
+      </a>
+      <a href="https://ccpress.pl/the-concept-of-explanation/3-19-187" target="_blank" rel="noopener" class="pub-book-link">
+        <img class="book-cover" src="../assets/the-concept-of-explanation-cover.jpeg" alt="The Concept of Explanation — book cover" />
+      </a>
+      <a href="https://ccpress.pl/the-many-faces-of-normativity/3-19-24" target="_blank" rel="noopener" class="pub-book-link">
+        <img class="book-cover" src="../assets/the-many-faces-of-normativity.jpg" alt="The Many Faces of Normativity — book cover" />
+      </a>
+    </div>
   </section>
   <div class="wrap">
     <div class="ref-list">
@@ -384,6 +396,8 @@ p{margin:0;}
       <p class="ref">Hohol, M., Cipora, K., Willmes, K., &amp; Nuerk, H.-C. (2017). Bringing back the balance: Domain-general processes are also important in numerical cognition. <em>Frontiers in Psychology</em>, <em>8</em>, Article 499. <a class="doi" href="https://doi.org/10.3389/fpsyg.2017.00499" target="_blank" rel="noopener">https://doi.org/10.3389/fpsyg.2017.00499</a> <a class="pdf" href="../publications/Hohol-etal_2017_FrontPsychol.pdf" target="_blank" rel="noopener">PDF</a></p>
       <p class="ref">Cipora, K., Hohol, M., Nuerk, H.-C., Willmes, K., Brożek, B., Kucharzyk, B., &amp; Nęcka, E. (2016). Professional mathematicians differ from controls in their spatial-numerical associations. <em>Psychological Research</em>, <em>80</em>, 710–726. <a class="doi" href="https://doi.org/10.1007/s00426-015-0677-6" target="_blank" rel="noopener">https://doi.org/10.1007/s00426-015-0677-6</a> <a class="pdf" href="../publications/Cipora-etal_2016_PsychRes.pdf" target="_blank" rel="noopener">PDF</a></p>
       <p class="ref">Hohol, M., &amp; Furman, M. (2016). On explanation in neuroscience: The mechanistic framework. In M. Heller, B. Brożek, &amp; M. Hohol (Eds.), <em>The concept of explanation</em> (pp. 207–235). Copernicus Center Press. <a class="pdf" href="../publications/Hohol-Furman_2016_ConceptExpl.pdf" target="_blank" rel="noopener">PDF</a></p>
+      <p class="ref">Heller, M., Brożek, B., Hohol, M. (Eds.) (2016). <em>The concept of explanation</em>. Kraków: Copernicus Center Press. <a class="pdf" href="https://ccpress.pl/the-concept-of-explanation/3-19-187" target="_blank" rel="noopener">Link</a></p>
+      <p class="ref">Stelmach, J., Brożek, B., Hohol, M. (Eds.) (2013). <em>The many faces of normativity</em>. Kraków: Copernicus Center Press. <a class="pdf" href="https://ccpress.pl/the-many-faces-of-normativity/3-19-24" target="_blank" rel="noopener">Link</a></p>
     </div>
     <div class="spacer"></div>
   </div>
