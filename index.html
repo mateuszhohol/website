@@ -198,6 +198,15 @@ p{margin:0;}
 /* ============================================================
    Responsive
    ============================================================ */
+/* Tablet / small desktop (e.g. iPad landscape): the viewport is too narrow
+   for .wrap centering to provide a side gutter (needs >1328px) but too wide
+   for the mobile rules below, so the `padding:X 0` sections would touch the
+   screen edges. Restore the gutter; at 1328px this hands over seamlessly to
+   the centering margin, so larger screens are pixel-identical. */
+@media(min-width:961px) and (max-width:1327px){
+  .wrap{max-width:1328px;}
+  .site-header .bar,.hero,.foci-wrap,.band-grid,.pub-head,.page-head,.footer-grid,.footer-bottom{padding-left:var(--pad);padding-right:var(--pad);}
+}
 @media(max-width:960px){
   :root{--pad:36px;}
   .hero{grid-template-columns:1fr;gap:36px;padding:52px 0;}
